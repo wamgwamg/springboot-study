@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    druid:
+      stat-view-servlet:
+        loginUsername: admin
+        loginPassword: 123456
+        url-pattern: /druid/*
+        allow:
+      filter:
+        stat:
+          merge-sql: true
+          slow-sql-millis: 5000
+      web-stat-filter:
+        url-pattern: /study/*
+        exclusions: '*.js,*.css,/druid/*'
+    dynamic:
+      druid:
+        initial-size: 5
+        max-active: 10
+        min-idle: 5
+        max-wait: 60000
+        filters: wall,stat #wall,stat顺序不可以颠倒，否则SQL监控无效？
+      primary: db0 #设置为默认数据源
+      datasource:
+        db0:
+          username: root
+          password: root
+          driver-class-name: com.mysql.jdbc.Driver
+          url: jdbc:mysql:///db0?useUnicode=true&characterEncoding=utf8&zeroDateTiomeBehavior=convertToNull
+        db1:
+          username: root
+          password: root
+          driver-class-name: com.mysql.jdbc.Driver
+          url: jdbc:mysql:///db1?useUnicode=true&characterEncoding=utf8&zeroDateTiomeBehavior=convertToNull
