@@ -23,12 +23,15 @@ spring:
       primary: db0 #设置为默认数据源
       datasource:
         db0:
+          url: jdbc:mysql://localhost/ds0?useUnicode=true&characterEncoding=utf8&zeroDateTiomeBehavior=convertToNull
           username: root
           password: root
           driver-class-name: com.mysql.jdbc.Driver
-          url: jdbc:mysql:///db0?useUnicode=true&characterEncoding=utf8&zeroDateTiomeBehavior=convertToNull
+
         db1:
+          url: jdbc:mysql://localhost/ds1?useUnicode=true&characterEncoding=utf8&zeroDateTiomeBehavior=convertToNull
           username: root
           password: root
           driver-class-name: com.mysql.jdbc.Driver
-          url: jdbc:mysql:///db1?useUnicode=true&characterEncoding=utf8&zeroDateTiomeBehavior=convertToNull
+server:
+  port: 80
