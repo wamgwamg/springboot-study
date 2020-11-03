@@ -25,6 +25,7 @@
 
     <modules>
         <module>springboot-mail</module>
+        <module>springboot-job</module>
     </modules>
 
     <dependencies>
@@ -65,11 +66,7 @@
             <optional>true</optional>
         </dependency>
 
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
-        </dependency>
+
         <!-- sqlserver driver -->
 <!--        <dependency>-->
 <!--            <groupId>com.microsoft.sqlserver.jdbc</groupId>-->
@@ -83,11 +80,11 @@
             <optional>true</optional>
         </dependency>
         <!-- mybatis-plus -->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.0.1</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.baomidou</groupId>-->
+<!--            <artifactId>mybatis-plus-boot-starter</artifactId>-->
+<!--            <version>3.0.1</version>-->
+<!--        </dependency>-->
         <!-- hutool工具包-->
         <dependency>
             <groupId>cn.hutool</groupId>

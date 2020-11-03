@@ -1,37 +1,90 @@
-spring:
-  datasource:
-    druid:
-      stat-view-servlet:
-        loginUsername: admin
-        loginPassword: 123456
-        url-pattern: /druid/*
-        allow:
-      filter:
-        stat:
-          merge-sql: true
-          slow-sql-millis: 5000
-      web-stat-filter:
-        url-pattern: /study/*
-        exclusions: '*.js,*.css,/druid/*'
-    dynamic:
-      druid:
-        initial-size: 5
-        max-active: 10
-        min-idle: 5
-        max-wait: 60000
-        filters: wall,stat #wall,stat顺序不可以颠倒，否则SQL监控无效？
-      primary: db0 #设置为默认数据源
-      datasource:
-        db0:
-          url: jdbc:mysql://localhost/ds0?useUnicode=true&characterEncoding=utf8&zeroDateTiomeBehavior=convertToNull
-          username: root
-          password: root
-          driver-class-name: com.mysql.jdbc.Driver
-
-        db1:
-          url: jdbc:mysql://localhost/ds1?useUnicode=true&characterEncoding=utf8&zeroDateTiomeBehavior=convertToNull
-          username: root
-          password: root
-          driver-class-name: com.mysql.jdbc.Driver
 server:
   port: 80
+
+spring:
+  datasource:
+    dynamic:
+
+
+      primary: db1 # 配置默认数据库
+      datasource:
+        db1: # 数据源1配置
+          url: jdbc:mysql://localhost/ds0
+          username: root
+          password:
+          driver-class-name: com.mysql.jdbc.Driver
+
+        db2: # 数据源2配置
+          url: jdbc:mysql://localhost/ds0
+          username: root
+          password:
+          driver-class-name: com.mysql.jdbc.Driver
+
+      # 数据源配置
+      druid:
+        # druid连接池监控
+        stat-view-servlet:
+          enabled: true
+          url-pattern: /druid/*
+          login-username: admin
+          login-password: admin
+          # 初始化时建立物理连接的个数
+          initial-size: 5
+          # 最大连接池数量
+          max-active: 30
+          # 最小连接池数量
+          min-idle: 5
+          # 获取连接时最大等待时间，单位毫秒
+          max-wait: 60000
+          # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+          time-between-eviction-runs-millis: 60000
+          # 连接保持空闲而不被驱逐的最小时间
+          min-evictable-idle-time-millis: 300000
+          # 用来检测连接是否有效的sql，要求是一个查询语句
+          validation-query: select count(*) from dual
+          # 建议配置为true，不影响性能，并且保证安全性。申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效。
+          test-while-idle: true
+          # 申请连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能。
+          test-on-borrow: false
+          # 归还连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能。
+          test-on-return: false
+          # 是否缓存preparedStatement，也就是PSCache。PSCache对支持游标的数据库性能提升巨大，比如说oracle。在mysql下建议关闭。
+          pool-prepared-statements: false
+          # 要启用PSCache，必须配置大于0，当大于0时，poolPreparedStatements自动触发修改为true。
+          max-pool-prepared-statement-per-connection-size: 50
+          # 配置监控统计拦截的filters，去掉后监控界面sql无法统计
+          filters: stat,wall
+          # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+          connection-properties:
+            druid.stat.mergeSql: true
+            druid.stat.slowSqlMillis: 500
+          # 合并多个DruidDataSource的监控数据
+          use-global-data-source-stat: true
+          filter:
+            stat:
+              log-slow-sql: true
+              slow-sql-millis: 1000
+              merge-sql: true
+            wall:
+              config:
+                multi-statement-allow: true
+
+
+
+
+
+
+
+#mybatis-plus:
+#  configuration:
+#      map-underscore-to-camel-case: true
+#      auto-mapping-behavior: full
+#      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  mapper-locations: classpath*:mapper/**/*Mapper.xml
+#    global-config:
+#      # 逻辑删除配置
+#      db-config:
+#        # 删除前
+#        logic-not-delete-value: 0
+#        # 删除后
+#        logic-delete-value: 1

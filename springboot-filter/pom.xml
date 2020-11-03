@@ -15,7 +15,7 @@
     <groupId>com.example</groupId>
     <artifactId>filter</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>filter</name>
+    <name>springboot-filter</name>
     <description>Demo project for Spring Boot</description>
 
 
