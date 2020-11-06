@@ -1,23 +1,24 @@
-package threadLocal;
+package com.example.skill.threadLocal;
 
 /**
  * @author : wangye
  * @date: 2020-10-27
  * @description:
  */
-public class MyDemo {
+public class MyDemoThreadLocal {
     private String content;
+    private static ThreadLocal<String> tl = new ThreadLocal<>();
 
-    public String getContent() {
-        return content;
+    private String getContent() {
+        return tl.get();
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    private void setContent(String content) {
+        tl.set(content);
     }
 
     public static void main(String[] args) {
-        MyDemo demo = new MyDemo();
+        MyDemoThreadLocal demo = new MyDemoThreadLocal();
         for (int i = 0; i < 5; i++) {
             Thread thread = new Thread(new Runnable() {
                 @Override

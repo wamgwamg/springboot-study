@@ -4,18 +4,15 @@ server:
 spring:
   datasource:
     dynamic:
-
-
-      primary: db1 # 配置默认数据库
+      primary: db0 # 配置默认数据库
       datasource:
-        db1: # 数据源1配置
-          url: jdbc:mysql://localhost/ds0
+        db0: # 数据源1配置
+          url: jdbc:mysql://localhost/ds0?useUnicode=true&characterEncoding=utf8&zeroDateTiomeBehavior=convertToNull
           username: root
           password:
           driver-class-name: com.mysql.jdbc.Driver
-
-        db2: # 数据源2配置
-          url: jdbc:mysql://localhost/ds0
+        db1: # 数据源2配置
+          url: jdbc:mysql://localhost/ds1?useUnicode=true&characterEncoding=utf8&zeroDateTiomeBehavior=convertToNull
           username: root
           password:
           driver-class-name: com.mysql.jdbc.Driver
@@ -71,9 +68,12 @@ spring:
 
 
 
+#控制台彩色打印
+  output:
+    ansi:
+      enabled: ALWAYS
 
-
-
+#日志输出级别
 
 #mybatis-plus:
 #  configuration:
@@ -88,3 +88,6 @@ spring:
 #        logic-not-delete-value: 0
 #        # 删除后
 #        logic-delete-value: 1
+logging:
+  level:
+    com.example.*: debug

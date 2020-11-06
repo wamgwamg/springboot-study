@@ -1,11 +1,11 @@
-package threadLocal;
+package com.example.skill.threadLocal;
 
 /**
  * @author : wangye
  * @date: 2020-10-30
  * @description:
  */
-public class RunnableTest implements Runnable {
+public class ThreadTest extends Thread {
     @Override
     public void run() {
         for (int i = 0; i < 10; i++) {
@@ -15,10 +15,11 @@ public class RunnableTest implements Runnable {
 
 
     public static void main(String[] args) {
-        RunnableTest mt1 = new RunnableTest();    // 实例化对象
-        RunnableTest mt2 = new RunnableTest();    // 实例化对象
-        Thread t1 = new Thread(mt1,"线程1");       // 实例化Thread类对象
-        Thread t2 = new Thread(mt2,"线程2");       // 实例化Thread类对象
+
+        ThreadTest t1 = new ThreadTest();       // 实例化Thread类对象
+        ThreadTest t2 = new ThreadTest();
+        t1.setName("线程1");// 实例化Thread类对象
+        t2.setName("线程2");// 实例化Thread类对象
         t1.start();    // 启动多线程
         t2.start();    // 启动多线程
     }
