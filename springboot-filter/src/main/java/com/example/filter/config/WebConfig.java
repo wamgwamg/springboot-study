@@ -28,7 +28,7 @@ public class WebConfig implements WebMvcConfigurer {
     }
 
     /**
-     * 注册过滤器
+     * 注册过滤器 20201208测试使用
      * @return
      */
     @Bean
