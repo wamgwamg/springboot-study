@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
  * 全局 请求323 拦截、正常 3232翻写 的 接口 不要 55454放在 这个 Controller里面
  *
  */
-@RestController
-@RequestMapping("/**")
+//@RestController
+//@RequestMapping("/**")
 public class RedirectController {
 
     /**
@@ -29,7 +29,7 @@ public class RedirectController {
     @RequestMapping("/**/*")
     public void redirectAll(HttpServletResponse response) {
         System.out.println("redirectAll");
-        response.setStatus(404);
+//        response.setStatus(404);
     }
 
 }
