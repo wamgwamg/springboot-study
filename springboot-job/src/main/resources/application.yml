@@ -91,3 +91,34 @@ spring:
 logging:
   level:
     com.example.*: debug
+
+application:
+  environment: huiduaaaa
+
+
+study-api:
+
+  #默认domain配置 配置中引用方式 ${study-api.domain}
+  default-domain: http://api.ceshi.com
+
+
+  wechat-domin: https://api.weixin.qq.com
+
+  # 企业微信
+  qyweichat-domain: https://qyapi.weixin.qq.com
+
+  qy-wechat-api:
+    domain: ${study-api.qyweichat-domain}
+    biz-uri-map: {
+      # 发送机器人消息
+      sendRobotMsg: "/test-bin/webhook/send?key="
+    }
+    ext-param-map: {
+      # 报警提醒手机号，逗号分割
+      alarmQyWxPhones: "12345667,123313",
+      # 报警提醒企业微信账号，逗号分割
+      alarmQyWxUsers: "xiaohong,xiaoming",
+      # passport 机器人
+      passpotRobotKey: "43028fcd-a6df-40d2-"
+    }
+

@@ -1,5 +1,6 @@
 package com.example.job.aop;
 
+import com.example.job.controller.RedirectController;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -20,9 +21,11 @@ public class ControllerAspect {
     public Object doAround(ProceedingJoinPoint point) throws Throwable {
 
 
-        System.out.println("环绕之前："+System.currentTimeMillis());
+        System.out.println("环绕之前：" + System.currentTimeMillis());
+        boolean b = point.getTarget() instanceof RedirectController;
+        System.out.println("instanceof RedirectController  " + b);
         Object proceed = point.proceed();
-        System.out.println("环绕之后："+System.currentTimeMillis());
+        System.out.println("环绕之后：" + System.currentTimeMillis());
 
         return proceed;
     }
