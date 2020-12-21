@@ -24,15 +24,15 @@ public class MailController {
     public boolean sendEmail() {
         SimpleMailMessage msg = new SimpleMailMessage();
         //发件人
-        msg.setFrom("");
+        msg.setFrom("915522192@qq.com");
         //密送方邮箱地址
         msg.setBcc();
         //// 抄送方邮箱地址
         msg.setCc();
         //收件人
-        msg.setTo("");
+        msg.setTo("915522192@qq.com");
         //邮件主题
-        msg.setSubject("测试邮件主题");
+        msg.setSubject("测试邮件主题20201106");
         //邮件内容
         msg.setText("这是测试邮件内容");
         try {
