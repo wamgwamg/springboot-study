@@ -59,12 +59,12 @@ public class UserController extends BaseController {
 
     /**
      * description:
-     *   curl 'http://localhost/user/c' -d 'id=89'
+     *   curl -i 'http://localhost/user/c' -d 'id=89'
      * @param null
      * @return
      */
     @PostMapping("/c")
-    public String gettest1() {
+    public String gettest1(String id ) {
         Map<String, User> a = manager.a();
         HttpUtil.curl();
         return a.toString();

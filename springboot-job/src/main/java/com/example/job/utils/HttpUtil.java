@@ -22,6 +22,9 @@ public class HttpUtil {
     }
 
     public static String parameter(Map<String, String[]> map){
+        if (map==null || map.size()==0) {
+            return "";
+        }
         StringBuffer buffer = new StringBuffer();
         map.forEach((k,v)->buffer.append(k).append("=").append(v[0]).append("&"));
 
