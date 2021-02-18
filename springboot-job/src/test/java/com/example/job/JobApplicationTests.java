@@ -43,6 +43,7 @@ class JobApplicationTests {
 
     public  void d(){
         System.out.println(testConfig.getEnvironment());//我是是分支master
+        System.out.println(testConfig.getEnvironment());//我是分支test-20210218
 //        apiConfig.appcontract
     }
 
