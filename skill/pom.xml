@@ -6,9 +6,11 @@
         <groupId>com.wy</groupId>
         <artifactId>springboot-study</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
+<!--        <relativePath>../pom.xml</relativePath>-->
+        <relativePath/>
     </parent>
 
+    <packaging>jar</packaging>
 
     <groupId>com.example</groupId>
     <artifactId>skill</artifactId>

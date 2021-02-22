@@ -116,16 +116,16 @@
             <artifactId>opensaml</artifactId>
             <version>1.1</version>
         </dependency>
-        <dependency>
-            <groupId>com.itrus.json</groupId>
-            <artifactId>itrus-json</artifactId>
-            <version>1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>small.danfer.sso</groupId>
-            <artifactId>single-sign-on-core</artifactId>
-            <version>1.2</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.itrus.json</groupId>-->
+<!--            <artifactId>itrus-json</artifactId>-->
+<!--            <version>1.0</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>small.danfer.sso</groupId>-->
+<!--            <artifactId>single-sign-on-core</artifactId>-->
+<!--            <version>1.2</version>-->
+<!--        </dependency>-->
 
         <!-- 模板引擎 -->
         <dependency>
