@@ -11,7 +11,7 @@ import java.util.Map;
  * @date 2019-03-01
  */
 @Slf4j
-public class HttpUtil {
+public class HttpCurl {
 
 
     public static void curl(){

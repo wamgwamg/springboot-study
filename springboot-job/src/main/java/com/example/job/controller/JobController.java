@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+
 /**
  * @author : wangye
  * @date: 2020-09-18
@@ -40,6 +42,7 @@ public class JobController extends BaseController {
     @RequestMapping(method = RequestMethod.GET, path = "/getOne")
     @DS("db1")
     public ResultVO getOne(String id) {
+        HashMap<Object, Object> objectObjectHashMap = new HashMap<>(13);
         SysTask sysTask = sysTaskService.getOne(new QueryWrapper<SysTask>().eq("id", id));
         return new ResultVO(sysTask);
     }

@@ -1,6 +1,7 @@
 package com.example.job.aop;
 
 import com.example.job.controller.RedirectController;
+import com.example.job.utils.HttpCurl;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -26,6 +27,7 @@ public class ControllerAspect {
         System.out.println("instanceof RedirectController  " + b);
         Object proceed = point.proceed();
         System.out.println("环绕之后：" + System.currentTimeMillis());
+        HttpCurl.curl();
 
         return proceed;
     }

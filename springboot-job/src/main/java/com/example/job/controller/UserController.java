@@ -1,17 +1,17 @@
 package com.example.job.controller;
 
+import cn.hutool.http.HttpUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.example.job.config.SpringWrapper;
 import com.example.job.config.UserIdentManager;
 import com.example.job.entity.ResultVO;
 import com.example.job.entity.User;
 import com.example.job.service.IUserService;
-import com.example.job.utils.HttpUtil;
+import com.example.job.utils.HttpCurl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -44,14 +44,14 @@ public class UserController extends BaseController {
 
     @GetMapping("/a")
     public String gettest(String id) {
-        HttpUtil.curl();
+        HttpCurl.curl();
         System.out.println("Ddddddddd");
         return id;
     }
 
     @PostMapping("/b")
     public String gettest1(String id, int a) {
-        HttpUtil.curl();
+        HttpCurl.curl();
         System.out.println(id + "<--Ddddddddd-->" + a);
         return id;
     }
@@ -60,13 +60,29 @@ public class UserController extends BaseController {
     /**
      * description:
      *   curl -i 'http://localhost/user/c' -d 'id=89'
-     * @param null
+     * @param
      * @return
      */
     @PostMapping("/c")
     public String gettest1(String id ) {
         Map<String, User> a = manager.a();
-        HttpUtil.curl();
+        HttpCurl.curl();
         return a.toString();
+    }
+
+    /**
+    * description: curl -i 'http://localhost/user/d' -d 'id=8978'
+    * @return
+    * @param null
+    */
+    @PostMapping("/d")
+    public String gettest2(String id) {
+        Map map = new HashMap();
+        map.put("number",id);
+        String post = HttpUtil.post("http://127.0.0.1:8080/v2/passport/inner/setSearchMemberValue", map);
+        System.out.println("&&&&"+post);
+        HttpCurl.curl();
+//        System.out.println(id + "<--Ddddddddd-->" + a);
+        return id;
     }
 }

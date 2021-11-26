@@ -1,9 +1,6 @@
 package com.example.job;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.TreeSet;
+import java.util.Map;
 
 /**
  * @author : wangye
@@ -12,42 +9,31 @@ import java.util.TreeSet;
  */
 public class Testgit {
 
+
+    private static final Object[] EMPTY_ELEMENTDATA = {};
+
+    //用于默认大小空实例的共享空数组实例。
+    //我们把它从EMPTY_ELEMENTDATA数组中区分出来，以知道在添加第一个元素时容量需要增加多少。
+    private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {};
     public static void main(String[] args) {
+        System.out.println(EMPTY_ELEMENTDATA==DEFAULTCAPACITY_EMPTY_ELEMENTDATA);
 
-        System.out.println((120l & 120l));
-        System.out.println((1103 & 1099511627776L) == 1099511627776L);
 
-        List<Long> b = new ArrayList<Long>();
-        for (long i = 100000000l;i<1000000000l;i++){
-            boolean a = ((i & 1099511627776L) == 1099511627776L);
-            if (a){
-                b.add(i);
-            }
+        System.out.println(2<<2);
+        System.out.println(32>>1);
+        System.out.println(2&1);
+    }
+
+
+
+    public abstract class BaseApi {
+        protected void addCommonParam(Map<String, String> param) {
+
         }
-
-
-        HashSet<String> s = new HashSet<>();
-        s.add("d");
-        s.add("r");
-        s.add("a");
-        s.add("y");
-
-        TreeSet<String> s1 = new TreeSet<>();
-        s1.add("r");
-        s1.add("a");
-        s1.add("y");
-        s1.add("d");
-
-        System.out.println(s.toString());
-        System.out.println(s1.toString());
-
-
-       A a = () -> System.out.println("执行3……");
-       a.b();
-
     }
 
-    interface A{
-       void b();
-    }
+
 }
+
+
+

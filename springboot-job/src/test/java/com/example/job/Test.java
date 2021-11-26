@@ -1,5 +1,6 @@
 package com.example.job;
 
+import cn.hutool.crypto.SecureUtil;
 import com.example.job.entity.Person;
 import com.example.job.entity.User;
 
@@ -15,6 +16,8 @@ import java.util.stream.Collectors;
 public class Test {
 
     public static void main(String[] args) {
+        System.out.println(SecureUtil.md5("140101199502187324"));
+//        System.out.println(SecureUtil.m("140101199502187324"));
 
         List<Person> personList = new ArrayList<>();
         personList.add(new Person("hepengju", 28, 20000.0));

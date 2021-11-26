@@ -9,6 +9,8 @@ package com.example.job.entity;
 public class Location {
 
     private String province;
+
+
     private String city;
     private String county;
     public void setProvince(String province) {

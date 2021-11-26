@@ -16,12 +16,13 @@ public class PayApi extends BaseApi{
     @Override
     public void addCommonParam(Map<String, String> param){
 
+//        System.out.println("PayApi++++++");
     }
 
     public static void main(String[] args) {
         PayApi payApi = new PayApi();
         HashMap<String, String> map = new HashMap<>();
-        map.put("xiao","打");
+        map.put("xi'an","打");
         payApi.urlApi(map);
     }
 }

@@ -14,7 +14,8 @@ public abstract class BaseApi {
         addCommonParam(param);
     }
 
-    protected void addCommonParam(Map<String, String> param) {
+    public void addCommonParam(Map<String, String> param) {
 
+        System.out.println("BaseApi++++");
     }
 }
